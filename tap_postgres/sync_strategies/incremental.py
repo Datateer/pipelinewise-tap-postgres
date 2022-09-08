@@ -137,5 +137,6 @@ def _get_select_sql(params):
         # if not replication_key_value
         select_sql = f"""SELECT {','.join(escaped_columns)}
                                     FROM {post_db.fully_qualified_table_name(schema_name, stream['table_name'])}
+                                    WHERE {post_db.prepare_columns_sql(replication_key)} > (CURRENT_DATE - 27)
                                     ORDER BY {post_db.prepare_columns_sql(replication_key)} ASC"""
     return select_sql
