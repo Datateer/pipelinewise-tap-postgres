@@ -57,10 +57,10 @@ def sync_table(conn_info, stream, state, desired_columns, md_map):
     singer.write_message(activate_version_message)
 
     replication_key = md_map.get((), {}).get('replication-key')
-    LOGGER.info('TEST!!!!!!!!!!!!!!!2222222')
-    LOGGER.info(vars(md_map))
-    LOGGER.info(vars(state))
-    LOGGER.info(vars(state.get('bookmarks', {}).items()))
+    LOGGER.info('TEST!!!!!!!!!!!!!!!3')
+    LOGGER.info(md_map)
+    LOGGER.info(state)
+    LOGGER.info(state.get('bookmarks', {}).items())
     replication_key_value = singer.get_bookmark(state, stream['tap_stream_id'], 'replication_key_value')
     replication_key_sql_datatype = md_map.get(('properties', replication_key)).get('sql-datatype')
 
