@@ -58,9 +58,9 @@ def sync_table(conn_info, stream, state, desired_columns, md_map):
 
     replication_key = md_map.get((), {}).get('replication-key')
     LOGGER.info('TEST!!!!!!!!!!!!!!!')
-    LOGGER.info([k, v for k, v in md_map.items()])
-    LOGGER.info([k, v for k, v in state.items()])
-    LOGGER.info([k, v for k, v in state.get('bookmarks', {}).items()])
+    LOGGER.info([for k, v in md_map.items()])
+    LOGGER.info([for k, v in state.items()])
+    LOGGER.info([for k, v in state.get('bookmarks', {}).items()])
     replication_key_value = singer.get_bookmark(state, stream['tap_stream_id'], 'replication_key_value')
     replication_key_sql_datatype = md_map.get(('properties', replication_key)).get('sql-datatype')
 
