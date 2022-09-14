@@ -57,6 +57,7 @@ def sync_table(conn_info, stream, state, desired_columns, md_map):
     singer.write_message(activate_version_message)
 
     replication_key = md_map.get((), {}).get('replication-key')
+    print('TEST!!!!!!!!!!!!!!!')
     print(dir(md_map))
     print(dir(state))
     print(dir(state.get('bookmarks', {})))
