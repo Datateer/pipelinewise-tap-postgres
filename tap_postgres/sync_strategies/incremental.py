@@ -1,5 +1,5 @@
 import copy
-import simplejson as json
+import json
 import time
 import psycopg2
 import psycopg2.extras
