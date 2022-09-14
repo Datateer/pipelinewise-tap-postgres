@@ -1,5 +1,5 @@
 import copy
-import json
+from json import dumps
 import time
 import psycopg2
 import psycopg2.extras
@@ -58,9 +58,9 @@ def sync_table(conn_info, stream, state, desired_columns, md_map):
     singer.write_message(activate_version_message)
 
     replication_key = md_map.get((), {}).get('replication-key')
-    print(json.dumps(md_map))
-    print(json.dumps(state))
-    print(json.dumps(state.get('bookmarks', {})))
+    print(dumps(md_map))
+    print(dumps(state))
+    print(dumps(state.get('bookmarks', {})))
     replication_key_value = singer.get_bookmark(state, stream['tap_stream_id'], 'replication_key_value')
     replication_key_sql_datatype = md_map.get(('properties', replication_key)).get('sql-datatype')
 
