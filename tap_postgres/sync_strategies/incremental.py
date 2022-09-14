@@ -62,6 +62,7 @@ def sync_table(conn_info, stream, state, desired_columns, md_map):
     LOGGER.info(state)
     LOGGER.info(state.get('bookmarks', {}).items())
     replication_key_value = singer.get_bookmark(state, stream['tap_stream_id'], 'replication_key_value')
+    LOGGER.info(replication_key_value)
     replication_key_sql_datatype = md_map.get(('properties', replication_key)).get('sql-datatype')
 
     hstore_available = post_db.hstore_available(conn_info)
